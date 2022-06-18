@@ -1,16 +1,26 @@
 import * as React from "react";
-import { View, Text } from "react-native";
-import styled from "styled-components/native";
 
-const PageText = styled(Text)`
-  color: ${(props) => props.theme.color[3]};
-`;
+import { MainView } from "../styles/all";
+import TextInputField from "../layouts/TextInputField";
 
 function Register() {
+  const [text, setText] = React.useState("");
+  const changeHandler = (e) => {
+    const { name, value } = e.target;
+    setInputs((values) => ({ ...values, [name]: value }));
+  };
+
   return (
-    <View>
-      <PageText>Register Here</PageText>
-    </View>
+    <MainView>
+      <TextInputField
+        onChangeText={(text) => setText(text)}
+        label="Username"
+        name="username"
+        value={text}
+        icon="account"
+        error={false}
+      />
+    </MainView>
   );
 }
 
