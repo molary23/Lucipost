@@ -1,21 +1,27 @@
+import * as React from "react";
 import { StatusBar as ExpoStatusBar } from "expo-status-bar";
-import { StyleSheet, Text, View, SafeAreaView, StatusBar } from "react-native";
-import NavBar from "./src/layouts/NavBar";
+import { SafeAreaView, StatusBar } from "react-native";
+import styled from "styled-components/native";
+
+import { ThemeProvider } from "styled-components/native";
+import { theme } from "./src/styles/themes";
+
+import Main from "./src/layouts/Main";
+
+const SafeArea = styled(SafeAreaView)`
+  ${StatusBar.currentHeight && `margin-top: ${StatusBar.currentHeight}px`};
+  flex: 1;
+`;
 
 export default function App() {
   return (
-    <SafeAreaView style={{ flex: 1, marginTop: StatusBar.currentHeight }}>
-      <NavBar />
+    <>
+      <ThemeProvider theme={theme}>
+        <SafeAreaView style={{ flex: 1, marginTop: StatusBar.currentHeight }}>
+          <Main />
+        </SafeAreaView>
+      </ThemeProvider>
       <ExpoStatusBar style="auto" />
-    </SafeAreaView>
+    </>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "center",
-  },
-});

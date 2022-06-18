@@ -1,18 +1,19 @@
+import * as React from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 
 import { Ionicons } from "@expo/vector-icons";
 
-import Home from "../components/Home";
-import Settings from "../components/Settings";
-import Trending from "../components/Trending";
+import HomeScreen from "../components/HomeScreen";
+import SettingScreen from "../components/SettingScreen";
+import TrendingScreen from "../components/TrendingScreen";
 
 const Tab = createBottomTabNavigator();
 
 const TAB_ICON = {
-  Home: "ios-home-outline",
-  Trending: "trending-up",
-  Settings: "settings",
+  HomeScreen: "ios-home-outline",
+  TrendingScreen: "trending-up",
+  SettingScreen: "settings",
 };
 
 const createScreenOptions = ({ route }) => {
@@ -33,26 +34,26 @@ const createScreenOptions = ({ route }) => {
   };
 };
 
-function NavBar() {
+function TabBar() {
   return (
     <NavigationContainer>
       <Tab.Navigator screenOptions={createScreenOptions}>
         <Tab.Screen
-          name="Home"
-          component={Home}
+          name="HomeScreen"
+          component={HomeScreen}
           options={{
             title: "Recent Stories",
             tabBarLabel: "Home",
           }}
         />
         <Tab.Screen
-          name="Trending"
-          component={Trending}
+          name="TrendingScreen"
+          component={TrendingScreen}
           options={{ title: "Trending Stories" }}
         />
         <Tab.Screen
-          name="Settings"
-          component={Settings}
+          name="SettingScreen"
+          component={SettingScreen}
           options={{ title: "Settings" }}
         />
       </Tab.Navigator>
@@ -60,4 +61,4 @@ function NavBar() {
   );
 }
 
-export default NavBar;
+export default TabBar;
