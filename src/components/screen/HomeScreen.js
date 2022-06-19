@@ -1,6 +1,6 @@
 import * as React from "react";
 
-import { FlatList, View, Text } from "react-native";
+import { FlatList } from "react-native";
 
 import { MainView, ContentView } from "../../styles/all";
 

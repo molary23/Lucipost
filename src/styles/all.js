@@ -1,5 +1,5 @@
 import styled from "styled-components/native";
-import { Text, View, SafeAreaView, StatusBar } from "react-native";
+import { Text, View } from "react-native";
 import { Searchbar, Button, Card, ActivityIndicator } from "react-native-paper";
 
 export const MainView = styled(View)`
@@ -60,4 +60,25 @@ export const LoaderView = styled(View)`
 
 export const Loading = styled(ActivityIndicator)`
   margin-left: -25px;
+`;
+
+export const ContentCardContent = styled(Card.Content)`
+  position: absolute;
+  top: 120px;
+`;
+
+export const ContentCardView = styled(View)`
+  position: absolute;
+  top: 0;
+`;
+
+export const TrendingListTitle = styled(Text)`
+  color: #fff;
+  font-size: ${(props) => props.theme.fontSize[3]};
+  font-weight: ${(props) => props.theme.fontWeight[2]};
+  letter-spacing: 1px;
+`;
+
+export const TrendingListCard = styled(Card)`
+  margin-bottom: ${(props) => props.theme.spacing[1]};
 `;

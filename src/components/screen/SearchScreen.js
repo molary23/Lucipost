@@ -15,12 +15,7 @@ function SearchScreen({ navigation }) {
         <Searchbar
           placeholder="Search Post..."
           icon="keyboard-backspace"
-          onIconPress={() =>
-            navigation.navigate({
-              name: "TabBar",
-              params: { post: "postText" },
-            })
-          }
+          onIconPress={() => navigation.goBack()}
           value={searchQuery}
           onChangeText={onChangeText}
           sender="SearchScreen"
