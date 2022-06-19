@@ -1,9 +1,9 @@
 import * as React from "react";
 import { Text } from "react-native";
 
-import { MainView } from "../styles/all";
+import { MainView } from "../../styles/all";
 
-import Searchbar from "../layouts/SearchBar";
+import Searchbar from "../../layouts/SearchBar";
 
 function HomeScreen() {
   return (

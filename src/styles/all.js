@@ -1,6 +1,6 @@
 import styled from "styled-components/native";
 import { Text, View, SafeAreaView, StatusBar } from "react-native";
-import { Searchbar } from "react-native-paper";
+import { Searchbar, Button } from "react-native-paper";
 
 export const MainView = styled(View)`
   padding: ${(props) => props.theme.spacing[1]};
@@ -9,4 +9,8 @@ export const MainView = styled(View)`
 
 export const Search = styled(Searchbar)`
   margin-bottom: ${(props) => props.theme.spacing[2]};
+`;
+
+export const Btn = styled(Button)`
+  margin-top: ${(props) => props.theme.spacing[4]};
 `;

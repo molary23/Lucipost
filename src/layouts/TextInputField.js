@@ -20,7 +20,7 @@ TextInputField.propTypes = {
   icon: PropTypes.string.isRequired,
   onChangeText: PropTypes.func.isRequired,
   label: PropTypes.string.isRequired,
-  name: PropTypes.string.isRequired,
+  name: PropTypes.string,
   error: PropTypes.bool.isRequired,
   value: PropTypes.any,
 };

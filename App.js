@@ -6,7 +6,7 @@ import styled from "styled-components/native";
 import { ThemeProvider } from "styled-components/native";
 import { theme } from "./src/styles/themes";
 
-import Main from "./src/layouts/Main";
+import Main from "./src/layouts/MainStack";
 
 const SafeArea = styled(SafeAreaView)`
   ${StatusBar.currentHeight && `margin-top: ${StatusBar.currentHeight}px`};
