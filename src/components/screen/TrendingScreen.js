@@ -1,10 +1,15 @@
-import { StyleSheet, Text, View, SafeAreaView, StatusBar } from "react-native";
+import * as React from "react";
+import Loader from "../../layouts/Loader";
+
+import { ContentView, MainView } from "../../styles/all";
 
 function TrendingScreen() {
   return (
-    <View>
-      <Text>Trending</Text>
-    </View>
+    <MainView>
+      <ContentView>
+        <Loader />
+      </ContentView>
+    </MainView>
   );
 }
 

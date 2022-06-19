@@ -1,9 +1,14 @@
 import styled from "styled-components/native";
 import { Text, View, SafeAreaView, StatusBar } from "react-native";
-import { Searchbar, Button } from "react-native-paper";
+import { Searchbar, Button, Card, ActivityIndicator } from "react-native-paper";
 
 export const MainView = styled(View)`
   flex: 1;
+`;
+
+export const ContentView = styled(View)`
+  flex: 1;
+  padding: ${(props) => props.theme.spacing[1]};
 `;
 
 export const Search = styled(Searchbar)`
@@ -27,4 +32,32 @@ export const FormCard = styled(View)`
   padding: ${(props) => props.theme.spacing[2]};
   width: 98%;
   margin: 0 auto;
+`;
+
+export const ContentParagraph = styled(Text)`
+  font-size: ${(props) => props.theme.fontSize[2]};
+`;
+
+export const ContentCard = styled(View)`
+  margin-bottom: ${(props) => props.theme.spacing[2]};
+`;
+
+export const ContentCardActions = styled(View)`
+  flex: 1;
+  flex-direction: row;
+`;
+
+export const ContentCardButton = styled(Button)`
+  flex: 0.5;
+  align-items: center;
+`;
+
+export const LoaderView = styled(View)`
+  position: absolute;
+  top: 50%;
+  left: 50%;
+`;
+
+export const Loading = styled(ActivityIndicator)`
+  margin-left: -25px;
 `;

@@ -1,23 +1,14 @@
 import * as React from "react";
-import { StyleSheet, Text, View, SafeAreaView, StatusBar } from "react-native";
 
-import MyButton from "../../layouts/MyButton";
+import { ContentView, MainView, ContentParagraph } from "../../styles/all";
 
-function SettingScreen({ navigation }) {
+function SettingScreen() {
   return (
-    <View>
-      <Text>Settings</Text>
-      <MyButton
-        icon="check-all"
-        label="Submit"
-        mode="contained"
-        onPress={() =>
-          navigation.navigate("WebKitScreen", {
-            user: "Molary",
-          })
-        }
-      />
-    </View>
+    <MainView>
+      <ContentView>
+        <ContentParagraph>Hello Settings</ContentParagraph>
+      </ContentView>
+    </MainView>
   );
 }
 

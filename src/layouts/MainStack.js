@@ -1,6 +1,7 @@
 import * as React from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import { TransitionPresets } from "@react-navigation/stack";
 
 import TabBar from "./navigator/TabBar";
 import Register from "../components/screen/Register";
@@ -18,10 +19,18 @@ function Main() {
         initialRouteName={screen ? "Register" : "TabBar"}
         screenOptions={{
           headerShown: false,
+          ...TransitionPresets.ModalPresentationIOS,
         }}
       >
         <MainStack.Screen name="Register" component={Register} />
-        <MainStack.Screen name="TabBar" component={TabBar} />
+        <MainStack.Screen
+          name="TabBar"
+          component={TabBar}
+          options={{
+            title: "TabBar",
+            ...TransitionPresets.ModalSlideFromBottomIOS,
+          }}
+        />
         <MainStack.Screen name="SearchScreen" component={SearchScreen} />
         <MainStack.Screen name="WebKitScreen" component={WebKitScreen} />
       </MainStack.Navigator>
