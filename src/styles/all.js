@@ -70,6 +70,11 @@ export const ContentCardContent = styled(Card.Content)`
 export const ContentCardView = styled(View)`
   position: absolute;
   top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  z-index: 999;
+  background: rgba(0, 0, 0, 0.6);
 `;
 
 export const TrendingListTitle = styled(Text)`
@@ -77,6 +82,7 @@ export const TrendingListTitle = styled(Text)`
   font-size: ${(props) => props.theme.fontSize[3]};
   font-weight: ${(props) => props.theme.fontWeight[2]};
   letter-spacing: 1px;
+  z-index: 9999;
 `;
 
 export const TrendingListCard = styled(Card)`

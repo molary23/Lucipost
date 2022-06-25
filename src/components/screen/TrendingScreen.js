@@ -4,8 +4,9 @@ import Loader from "../../layouts/Loader";
 import { FlatList } from "react-native";
 
 import { ContentView, MainView } from "../../styles/all";
-import TrendingPost from "../../layouts/TrendingPost";
+import TrendingPostal from "../../layouts/TrendingPostal";
 import TrendingPostCard from "../../layouts/TrendingPostCard";
+import MyHeader from "../../layouts/MyHeader";
 
 const DATA = [
   {
@@ -32,12 +33,13 @@ function TrendingScreen() {
   const [isLoading, setIsLoading] = React.useState(false);
   return (
     <MainView>
+      <MyHeader title="Trending Stories" />
       <ContentView>
         {isLoading ? (
           <Loader />
         ) : (
           <>
-            <TrendingPost {...reduceData} />
+            <TrendingPostal {...reduceData} />
             <FlatList
               data={DATA}
               renderItem={renderItem}

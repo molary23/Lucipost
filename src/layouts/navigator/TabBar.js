@@ -5,7 +5,7 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { Ionicons } from "@expo/vector-icons";
 
 import HomeScreen from "../../components/screen/HomeScreen";
-import SettingScreen from "../../components/screen/SettingScreen";
+import MoreScreen from "../../components/screen/MoreScreen";
 import TrendingScreen from "../../components/screen/TrendingScreen";
 
 const Tab = createBottomTabNavigator();
@@ -14,7 +14,7 @@ function TabBar() {
   const TAB_ICON = {
     HomeScreen: "ios-home-outline",
     TrendingScreen: "trending-up",
-    SettingScreen: "settings",
+    MoreScreen: "list-outline",
   };
 
   const createScreenOptions = ({ route }) => {
@@ -26,6 +26,7 @@ function TabBar() {
 
       tabBarActiveTintColor: "#5ea1ed",
       tabBarInactiveTintColor: "gray",
+      headerShown: false,
       tabBarStyle: [
         {
           display: "flex",
@@ -51,9 +52,9 @@ function TabBar() {
         options={{ title: "Trending Stories" }}
       />
       <Tab.Screen
-        name="SettingScreen"
-        component={SettingScreen}
-        options={{ title: "Settings" }}
+        name="MoreScreen"
+        component={MoreScreen}
+        options={{ title: "More" }}
       />
     </Tab.Navigator>
   );

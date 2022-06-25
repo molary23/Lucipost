@@ -9,6 +9,7 @@ function SearchScreen({ navigation }) {
   const [searchQuery, setSearchQuery] = React.useState("");
 
   const onChangeText = (query) => setSearchQuery(query);
+
   return (
     <MainView>
       <ContentView>

@@ -7,6 +7,7 @@ import { MainView, ContentView } from "../../styles/all";
 import Searchbar from "../../layouts/SearchBar";
 import SearchScreen from "./SearchScreen";
 import PostCard from "../../layouts/PostCard";
+import MyHeader from "../../layouts/MyHeader";
 
 const DATA = [
   {
@@ -30,6 +31,7 @@ function HomeScreen({ navigation }) {
 
   return (
     <MainView>
+      <MyHeader title="Recent Stories" />
       <ContentView>
         <Searchbar
           placeholder="Search Post"
@@ -37,9 +39,6 @@ function HomeScreen({ navigation }) {
           onFocus={() =>
             navigation.navigate(SearchScreen, {
               screen: "SearchScreen",
-              params: {
-                user: "anything_string_or_object",
-              },
             })
           }
           sender={"HomeScreen"}
