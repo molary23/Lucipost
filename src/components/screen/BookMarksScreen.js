@@ -4,10 +4,21 @@ import * as React from "react";
 import { MainView } from "../../styles/all";
 import MyHeader from "../../layouts/MyHeader";
 
-export const BookMarksScreen = (props) => {
+export const BookMarksScreen = ({ navigation: { navigate }, route }) => {
+  console.log(route);
   return (
     <MainView>
-      <MyHeader title="Bookmarks" />
+      <MyHeader
+        title="Bookmarks"
+        onPressBack={() =>
+          navigate("MoreScreen", {
+            name: "Hello from Here",
+          })
+        }
+        back={true}
+        first={true}
+        second={true}
+      />
     </MainView>
   );
 };

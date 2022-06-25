@@ -4,17 +4,18 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 
 import { Ionicons } from "@expo/vector-icons";
 
-import HomeScreen from "../../components/screen/HomeScreen";
 import MoreScreen from "../../components/screen/MoreScreen";
 import TrendingScreen from "../../components/screen/TrendingScreen";
+import HomeStackView from "../stack/HomeStackView";
+import MoreStackView from "../stack/MoreStackView";
 
 const Tab = createBottomTabNavigator();
 
 function TabBar() {
   const TAB_ICON = {
-    HomeScreen: "ios-home-outline",
+    HomeStackView: "ios-home-outline",
     TrendingScreen: "trending-up",
-    MoreScreen: "list-outline",
+    MoreStackView: "list-outline",
   };
 
   const createScreenOptions = ({ route }) => {
@@ -39,8 +40,8 @@ function TabBar() {
   return (
     <Tab.Navigator screenOptions={createScreenOptions}>
       <Tab.Screen
-        name="HomeScreen"
-        component={HomeScreen}
+        name="HomeStackView"
+        component={HomeStackView}
         options={{
           title: "Recent Stories",
           tabBarLabel: "Home",
@@ -52,8 +53,8 @@ function TabBar() {
         options={{ title: "Trending Stories" }}
       />
       <Tab.Screen
-        name="MoreScreen"
-        component={MoreScreen}
+        name="MoreStackView"
+        component={MoreStackView}
         options={{ title: "More" }}
       />
     </Tab.Navigator>

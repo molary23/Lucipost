@@ -5,12 +5,11 @@ import { List } from "react-native-paper";
 import { ContentView, MainView } from "../../styles/all";
 import ListItem from "../../layouts/ListItem";
 import MyHeader from "../../layouts/MyHeader";
-import BookMarksScreen from "./BookMarksScreen";
 
-function MoreScreen({ navigation }) {
+function MoreScreen({ navigation: { navigate } }) {
   return (
     <MainView>
-      <MyHeader title="More" />
+      <MyHeader title="More" back={false} first={false} second={false} />
       <ContentView>
         <ScrollView>
           <List.Section>
@@ -22,8 +21,8 @@ function MoreScreen({ navigation }) {
               color={"black"}
               icon="bookmark-multiple-outline"
               onPress={() =>
-                navigation.navigate(BookMarksScreen, {
-                  screen: "BookMarksScreen",
+                navigate("BookMarksScreen", {
+                  name: "Hello from Here",
                 })
               }
             />

@@ -7,8 +7,6 @@ import {
 
 import TabBar from "../navigator/TabBar";
 import Register from "../../components/screen/Register";
-import SearchScreen from "../../components/screen/SearchScreen";
-import BookMarksScreen from "../../components/screen/BookMarksScreen";
 
 const MainStack = createStackNavigator();
 
@@ -26,21 +24,6 @@ function Main() {
       >
         <MainStack.Screen name="Register" component={Register} />
         <MainStack.Screen name="TabBar" component={TabBar} />
-        <MainStack.Screen
-          name="SearchScreen"
-          component={SearchScreen}
-          options={{
-            title: "Search",
-            ...TransitionPresets.ModalSlideFromBottomIOS,
-          }}
-        />
-        <MainStack.Screen
-          name="BookMarksScreen"
-          component={BookMarksScreen}
-          options={{
-            title: "Bookmarks",
-          }}
-        />
       </MainStack.Navigator>
     </NavigationContainer>
   );
