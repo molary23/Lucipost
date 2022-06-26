@@ -14,7 +14,7 @@ export default function HomeStackView() {
     <HomeStack.Navigator
       screenOptions={{
         headerShown: false,
-        ...TransitionPresets.ModalPresentationIOS,
+        ...TransitionPresets.DefaultTransition,
       }}
     >
       <HomeStack.Screen name="HomeScreen" component={HomeScreen} />

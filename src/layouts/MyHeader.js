@@ -15,17 +15,12 @@ function MyHeader({
   onPressBack,
 }) {
   return (
-    <Appbar.Header>
+    <Appbar.Header mode="center-aligned">
       {back && <Appbar.BackAction onPress={onPressBack} />}
       <Appbar.Content title={title} />
-      {first && (
-        <Appbar.Action icon="magnify" onPress={() => console.log("second")} />
-      )}
+      {first && <Appbar.Action icon={firstIcon} onPress={onFirstIconPress} />}
       {second && (
-        <Appbar.Action
-          icon="dots-vertical"
-          onPress={() => console.log("third")}
-        />
+        <Appbar.Action icon={secondIcon} onPress={onSecondIconPress} />
       )}
     </Appbar.Header>
   );

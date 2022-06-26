@@ -37,8 +37,8 @@ function HomeScreen({ navigation }) {
           placeholder="Search Post"
           icon="magnify"
           onFocus={() =>
-            navigation.navigate(SearchScreen, {
-              screen: "SearchScreen",
+            navigation.navigate("SearchScreen", {
+              sender: "HomeScreen",
             })
           }
           sender={"HomeScreen"}

@@ -18,6 +18,12 @@ export const BookMarksScreen = ({ navigation: { navigate }, route }) => {
         back={true}
         first={true}
         second={true}
+        firstIcon="magnify"
+        onFirstIconPress={() =>
+          navigate("SearchScreen", {
+            sender: "BookmarksScreen",
+          })
+        }
       />
     </MainView>
   );
