@@ -1,6 +1,12 @@
 import styled from "styled-components/native";
 import { Text, View } from "react-native";
-import { Searchbar, Button, Card, ActivityIndicator } from "react-native-paper";
+import {
+  Searchbar,
+  Button,
+  Card,
+  ActivityIndicator,
+  Paragraph,
+} from "react-native-paper";
 
 export const MainView = styled(View)`
   flex: 1;
@@ -87,4 +93,17 @@ export const TrendingListTitle = styled(Text)`
 
 export const TrendingListCard = styled(Card)`
   margin-bottom: ${(props) => props.theme.spacing[1]};
+`;
+
+export const PostCardTitle = styled(Text)`
+  font-size: ${(props) => props.theme.fontSize[2]};
+  font-weight: ${(props) => props.theme.fontWeight[2]};
+  text-transform: capitalize;
+  margin-top: ${(props) => props.theme.spacing[1]};
+`;
+
+export const PostCardContent = styled(Paragraph)`
+  font-size: ${(props) => props.theme.fontSize[2]};
+  padding-top: ${(props) => props.theme.spacing[1]};
+  text-align: justify;
 `;

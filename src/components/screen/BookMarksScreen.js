@@ -18,8 +18,8 @@ export const BookMarksScreen = ({ navigation: { navigate }, route }) => {
         back={true}
         first={true}
         second={true}
-        firstIcon="magnify"
-        onFirstIconPress={() =>
+        secondIcon="magnify"
+        onSecondIconPress={() =>
           navigate("SearchScreen", {
             sender: "BookmarksScreen",
           })

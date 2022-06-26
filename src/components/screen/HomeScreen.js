@@ -2,12 +2,14 @@ import * as React from "react";
 
 import { FlatList } from "react-native";
 
+import { PostContext } from "../../services/post-context";
+
 import { MainView, ContentView } from "../../styles/all";
 
 import Searchbar from "../../layouts/SearchBar";
-import SearchScreen from "./SearchScreen";
 import PostCard from "../../layouts/PostCard";
 import MyHeader from "../../layouts/MyHeader";
+import Loader from "../../layouts/Loader";
 
 const DATA = [
   {
@@ -27,27 +29,36 @@ const DATA = [
 const Item = ({ title }) => <PostCard title={title} />;
 
 function HomeScreen({ navigation }) {
+  const { posts, isLoading, error } = React.useContext(PostContext);
+
   const renderItem = ({ item }) => <Item title={item.title} />;
 
   return (
     <MainView>
       <MyHeader title="Recent Stories" />
       <ContentView>
-        <Searchbar
-          placeholder="Search Post"
-          icon="magnify"
-          onFocus={() =>
-            navigation.navigate("SearchScreen", {
-              sender: "HomeScreen",
-            })
-          }
-          sender={"HomeScreen"}
-        />
-        <FlatList
-          data={DATA}
-          renderItem={renderItem}
-          keyExtractor={(item) => item.id}
-        />
+        {isLoading ? (
+          <Loader />
+        ) : (
+          <>
+            {" "}
+            <Searchbar
+              placeholder="Search Post"
+              icon="magnify"
+              onFocus={() =>
+                navigation.navigate("SearchScreen", {
+                  sender: "HomeScreen",
+                })
+              }
+              sender={"HomeScreen"}
+            />
+            <FlatList
+              data={posts}
+              renderItem={(item) => <PostCard content={item} />}
+              keyExtractor={(item) => item.id}
+            />
+          </>
+        )}
       </ContentView>
     </MainView>
   );

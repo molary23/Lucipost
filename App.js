@@ -3,6 +3,8 @@ import { StatusBar as ExpoStatusBar } from "expo-status-bar";
 import { SafeAreaView, StatusBar } from "react-native";
 import styled from "styled-components/native";
 
+import PostContextProvider from "./src/services/post-context";
+
 import { ThemeProvider } from "styled-components/native";
 import { theme } from "./src/styles/themes";
 
@@ -17,9 +19,11 @@ export default function App() {
   return (
     <>
       <ThemeProvider theme={theme}>
-        <SafeAreaView style={{ flex: 1, marginTop: StatusBar.currentHeight }}>
-          <Main />
-        </SafeAreaView>
+        <PostContextProvider>
+          <SafeAreaView style={{ flex: 1, marginTop: StatusBar.currentHeight }}>
+            <Main />
+          </SafeAreaView>
+        </PostContextProvider>
       </ThemeProvider>
       <ExpoStatusBar style="auto" />
     </>

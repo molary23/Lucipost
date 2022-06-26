@@ -1,4 +1,5 @@
 import * as React from "react";
+import { Platform } from "react-native";
 
 import PropTypes from "prop-types";
 import { Appbar } from "react-native-paper";
@@ -14,8 +15,16 @@ function MyHeader({
   onSecondIconPress,
   onPressBack,
 }) {
+  const isAndroid = Platform.OS === "android";
   return (
-    <Appbar.Header mode="center-aligned">
+    <Appbar.Header
+      style={{
+        height: isAndroid ? 30 : 60,
+        marginBottom: isAndroid && 20,
+        marginTop: isAndroid && 20,
+        backgroundColor: "red",
+      }}
+    >
       {back && <Appbar.BackAction onPress={onPressBack} />}
       <Appbar.Content title={title} />
       {first && <Appbar.Action icon={firstIcon} onPress={onFirstIconPress} />}

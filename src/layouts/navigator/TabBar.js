@@ -56,7 +56,7 @@ function TabBar() {
       <Tab.Screen
         name="PersonaliseStackView"
         component={PersonaliseStackView}
-        options={{ title: "For You" }}
+        options={{ title: "Personalise" }}
       />
       <Tab.Screen
         name="MoreStackView"

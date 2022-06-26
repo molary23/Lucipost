@@ -8,16 +8,26 @@ import {
   ContentCard,
   ContentCardActions,
   ContentCardButton,
+  PostCardTitle,
+  PostCardContent,
 } from "../styles/all";
 
-function PostCard({ title }) {
+function PostCard({ content }) {
   return (
     <ContentCard>
       <Card>
         <Card.Cover source={{ uri: "https://picsum.photos/700" }} />
         <Card.Content>
-          <Title>{title}</Title>
-          <Paragraph>Card content</Paragraph>
+          <PostCardTitle>
+            {content.item.title.length > 50
+              ? `${content.item.title.substring(0, 50)}...`
+              : content.item.title}
+          </PostCardTitle>
+          <PostCardContent>
+            {content.item.body.length > 100
+              ? `${content.item.body.substring(0, 100)}...`
+              : content.item.body}
+          </PostCardContent>
         </Card.Content>
         <Card.Actions>
           <ContentCardActions>
