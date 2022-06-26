@@ -1,6 +1,7 @@
 import * as React from "react";
-import { Button, Card, Title, Paragraph } from "react-native-paper";
+import { Card } from "react-native-paper";
 import { Platform } from "react-native";
+import { TouchableOpacity } from "react-native";
 
 import { Ionicons, AntDesign } from "@expo/vector-icons";
 
@@ -12,23 +13,25 @@ import {
   PostCardContent,
 } from "../styles/all";
 
-function PostCard({ content }) {
+function PostCard({ content, openURL }) {
   return (
     <ContentCard>
       <Card>
-        <Card.Cover source={{ uri: "https://picsum.photos/700" }} />
-        <Card.Content>
-          <PostCardTitle>
-            {content.item.title.length > 50
-              ? `${content.item.title.substring(0, 50)}...`
-              : content.item.title}
-          </PostCardTitle>
-          <PostCardContent>
-            {content.item.body.length > 100
-              ? `${content.item.body.substring(0, 100)}...`
-              : content.item.body}
-          </PostCardContent>
-        </Card.Content>
+        <TouchableOpacity onPress={openURL}>
+          <Card.Cover source={{ uri: "https://picsum.photos/700" }} />
+          <Card.Content>
+            <PostCardTitle>
+              {content.item.title.length > 50
+                ? `${content.item.title.substring(0, 50)}...`
+                : content.item.title}
+            </PostCardTitle>
+            <PostCardContent>
+              {content.item.body.length > 100
+                ? `${content.item.body.substring(0, 100)}...`
+                : content.item.body}
+            </PostCardContent>
+          </Card.Content>
+        </TouchableOpacity>
         <Card.Actions>
           <ContentCardActions>
             <ContentCardButton
