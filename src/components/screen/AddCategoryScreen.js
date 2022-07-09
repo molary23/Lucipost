@@ -27,7 +27,7 @@ function AddCategoryScreen() {
             <List.Section>
               <List.Subheader>Categories</List.Subheader>
               {cat.map((item, i) => {
-                return <FavouriteCategory category={item.name} key={i} />;
+                return <FavouriteCategory category={item} key={i} />;
               })}
             </List.Section>
           </ScrollView>

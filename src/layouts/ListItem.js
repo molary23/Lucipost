@@ -4,12 +4,13 @@ import PropTypes from "prop-types";
 
 import { ListItems } from "../styles/all";
 
-function ListItem({ title, icon, color, onPress }) {
+function ListItem({ title, leftIcon, rightIcon, color, onPress }) {
   return (
     <ListItems
       title={title}
       onPress={onPress}
-      left={() => <List.Icon icon={icon} color={color} />}
+      left={() => !!leftIcon && <List.Icon icon={leftIcon} color={color} />}
+      right={() => !!rightIcon && <List.Icon icon={rightIcon} color={color} />}
     />
   );
 }
@@ -18,7 +19,8 @@ ListItem.propTypes = {
   onPress: PropTypes.func,
   value: PropTypes.string,
   title: PropTypes.string.isRequired,
-  icon: PropTypes.string.isRequired,
+  leftIcon: PropTypes.string,
+  rightIcon: PropTypes.string,
   color: PropTypes.string,
 };
 

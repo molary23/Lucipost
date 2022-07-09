@@ -13,16 +13,18 @@ function FavouriteCategory({ category }) {
     removeFavouriteCategory,
   } = React.useContext(CategoryContext);
 
-  const isFave = favouriteCategory.find((c) => c === category);
+  const isFave = favouriteCategory.find((c) => c === category.id);
   return (
     <ListItem
-      title={category}
+      title={category.name}
       color={"black"}
-      icon={isFave ? "check-circle-outline" : "checkbox-blank-circle-outline"}
+      rightIcon={
+        isFave ? "check-circle-outline" : "checkbox-blank-circle-outline"
+      }
       onPress={() =>
         isFave
-          ? removeFavouriteCategory(category)
-          : addFavouriteCategory(category)
+          ? removeFavouriteCategory(category.id)
+          : addFavouriteCategory(category.id)
       }
     />
   );

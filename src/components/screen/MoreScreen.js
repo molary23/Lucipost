@@ -14,12 +14,20 @@ function MoreScreen({ navigation: { navigate } }) {
         <ScrollView>
           <List.Section>
             <List.Subheader>Some title</List.Subheader>
-            <ListItem title="Notifications" color={"yellow"} icon="folder" />
-            <ListItem title="About" color={"blue"} icon="information-outline" />
+            <ListItem
+              title="Notifications"
+              color={"yellow"}
+              leftIcon="folder"
+            />
+            <ListItem
+              title="About"
+              color={"blue"}
+              leftIcon="information-outline"
+            />
             <ListItem
               title="Bookmarks"
               color={"black"}
-              icon="bookmark-multiple-outline"
+              leftIcon="bookmark-multiple-outline"
               onPress={() =>
                 navigate("BookMarksScreen", {
                   name: "Hello from Here",

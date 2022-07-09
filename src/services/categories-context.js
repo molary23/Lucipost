@@ -34,18 +34,19 @@ export const CategoryContextProvider = ({ children }) => {
     executedRef.current = true;
   }, []);
 
-  const addFavouriteCategory = (category) => {
+  const add = (category) => {
     const fave = [...favouriteCategory, category];
     setFavouriteCategory(fave);
   };
 
-  const removeFavouriteCategory = (category) => {
+  const remove = (category) => {
     const newFave = favouriteCategory.filter((f) => f !== category);
     setFavouriteCategory(newFave);
   };
 
   React.useEffect(() => {
     storeData(favouriteCategory, "@category");
+    console.log(favouriteCategory);
   }, [favouriteCategory]);
 
   React.useEffect(() => {
@@ -59,9 +60,9 @@ export const CategoryContextProvider = ({ children }) => {
     <CategoryContext.Provider
       value={{
         cat,
-        addFavouriteCategory,
+        addFavouriteCategory: add,
         favouriteCategory,
-        removeFavouriteCategory,
+        removeFavouriteCategory: remove,
         error,
         isLoading,
       }}
