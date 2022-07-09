@@ -8,9 +8,6 @@ import { ContentView, MainView } from "../../styles/all";
 import MyHeader from "../../layouts/MyHeader";
 
 function CategoryScreen({ navigation }) {
-  const { cat } = React.useContext(CategoryContext);
-
-  console.log(cat);
   return (
     <MainView>
       <MyHeader

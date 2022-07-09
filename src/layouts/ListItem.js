@@ -2,9 +2,11 @@ import * as React from "react";
 import { List } from "react-native-paper";
 import PropTypes from "prop-types";
 
+import { ListItems } from "../styles/all";
+
 function ListItem({ title, icon, color, onPress }) {
   return (
-    <List.Item
+    <ListItems
       title={title}
       onPress={onPress}
       left={() => <List.Icon icon={icon} color={color} />}

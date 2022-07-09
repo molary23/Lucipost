@@ -37,7 +37,10 @@ function PersonaliseStackView() {
           name="AddCategoryScreen"
           component={AddCategoryScreen}
           options={{
-            cardStyleInterpolator: CardStyleInterpolators.forHorizontalIOS,
+            headerShown: false,
+            gestureEnabled: true,
+            cardOverlayEnabled: true,
+            ...TransitionPresets.ModalPresentationIOS,
           }}
         />
       </PersonaliseStack.Navigator>

@@ -18,7 +18,7 @@ function PostCard({ content, openURL }) {
     <ContentCard>
       <Card>
         <TouchableOpacity onPress={openURL}>
-          <Card.Cover source={{ uri: "https://picsum.photos/700" }} />
+          <Card.Cover source={{ uri: "" }} />
           <Card.Content>
             <PostCardTitle>
               {content.item.title.length > 50

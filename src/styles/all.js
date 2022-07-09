@@ -6,6 +6,7 @@ import {
   Card,
   ActivityIndicator,
   Paragraph,
+  List,
 } from "react-native-paper";
 
 export const MainView = styled(View)`
@@ -106,4 +107,8 @@ export const PostCardContent = styled(Paragraph)`
   font-size: ${(props) => props.theme.fontSize[2]};
   padding-top: ${(props) => props.theme.spacing[1]};
   text-align: justify;
+`;
+
+export const ListItems = styled(List.Item)`
+  text-transform: capitalize;
 `;
