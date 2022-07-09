@@ -4,6 +4,7 @@ import { SafeAreaView, StatusBar } from "react-native";
 import styled from "styled-components/native";
 
 import PostContextProvider from "./src/services/post-context";
+import CategoryContextProvider from "./src/services/categories-context";
 
 import { ThemeProvider } from "styled-components/native";
 import { theme } from "./src/styles/themes";

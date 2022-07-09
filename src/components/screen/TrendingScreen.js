@@ -27,13 +27,18 @@ const reduceData = DATA.splice(0, 1);
 
 const Item = ({ title }) => <TrendingPostCard title={title} />;
 
-function TrendingScreen() {
+function TrendingScreen({ navigation: { navigate } }) {
   const renderItem = ({ item }) => <Item title={item.title} />;
 
   const [isLoading, setIsLoading] = React.useState(false);
   return (
     <MainView>
-      <MyHeader title="Trending Stories" />
+      <MyHeader
+        title="Trending Stories"
+        second={true}
+        secondIcon="tune"
+        onSecondIconPress={() => navigate("CategoryScreen")}
+      />
       <ContentView>
         {isLoading ? (
           <Loader />

@@ -7,6 +7,7 @@ import { Ionicons } from "@expo/vector-icons";
 import TrendingScreen from "../../components/screen/TrendingScreen";
 import HomeStackView from "../stack/HomeStackView";
 import MoreStackView from "../stack/MoreStackView";
+import NotificationStackView from "../stack/NotificationStackView";
 import PersonaliseStackView from "../stack/PersonaliseStackView";
 
 const Tab = createBottomTabNavigator();
@@ -14,9 +15,9 @@ const Tab = createBottomTabNavigator();
 function TabBar() {
   const TAB_ICON = {
     HomeStackView: "ios-home-outline",
-    TrendingScreen: "trending-up",
+    PersonaliseStackView: "trending-up",
     MoreStackView: "list-outline",
-    PersonaliseStackView: "ios-person-circle-outline",
+    NotificationStackView: "notifications-outline",
   };
 
   const createScreenOptions = ({ route }) => {
@@ -49,14 +50,14 @@ function TabBar() {
         }}
       />
       <Tab.Screen
-        name="TrendingScreen"
-        component={TrendingScreen}
+        name="PersonaliseStackView"
+        component={PersonaliseStackView}
         options={{ title: "Trending Stories" }}
       />
       <Tab.Screen
-        name="PersonaliseStackView"
-        component={PersonaliseStackView}
-        options={{ title: "Personalise" }}
+        name="NotificationStackView"
+        component={NotificationStackView}
+        options={{ title: "Notifications" }}
       />
       <Tab.Screen
         name="MoreStackView"

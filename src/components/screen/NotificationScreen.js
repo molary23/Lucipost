@@ -4,11 +4,11 @@ import { StyleSheet, Text, View, SafeAreaView, StatusBar } from "react-native";
 import { ContentView, MainView } from "../../styles/all";
 import MyHeader from "../../layouts/MyHeader";
 
-function PersonaliseScreen({ navigation: { navigate } }) {
+function NotificationScreen({ navigation: { navigate } }) {
   return (
     <MainView>
       <MyHeader
-        title="For You"
+        title="Notifications"
         second={true}
         secondIcon="tune"
         onSecondIconPress={() => navigate("CategoryScreen")}
@@ -20,4 +20,4 @@ function PersonaliseScreen({ navigation: { navigate } }) {
   );
 }
 
-export default PersonaliseScreen;
+export default NotificationScreen;
