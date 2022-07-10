@@ -14,9 +14,14 @@ function CategoryScreen({ navigation }) {
         title="Categories"
         back={true}
         onPressBack={() => navigation.goBack()}
-        second={true}
-        secondIcon="plus-box-multiple"
-        onSecondIconPress={() => navigation.navigate("AddCategoryScreen")}
+        secondIcon="tag-plus-outline"
+        onSecondIconPress={() =>
+          navigation.navigate("AddCategoryScreen", { add: "Tags" })
+        }
+        firstIcon="plus-box-multiple"
+        onFirstIconPress={() =>
+          navigation.navigate("AddCategoryScreen", { add: "Categories" })
+        }
       />
       <ContentView>
         <Text>This is the categroy Page</Text>

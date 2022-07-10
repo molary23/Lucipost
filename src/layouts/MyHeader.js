@@ -7,8 +7,6 @@ import { Appbar } from "react-native-paper";
 function MyHeader({
   title,
   back,
-  first,
-  second,
   firstIcon,
   secondIcon,
   onFirstIconPress,
@@ -27,8 +25,10 @@ function MyHeader({
     >
       {back && <Appbar.BackAction onPress={onPressBack} />}
       <Appbar.Content title={title} />
-      {first && <Appbar.Action icon={firstIcon} onPress={onFirstIconPress} />}
-      {second && (
+      {!!firstIcon && (
+        <Appbar.Action icon={firstIcon} onPress={onFirstIconPress} />
+      )}
+      {!!secondIcon && (
         <Appbar.Action icon={secondIcon} onPress={onSecondIconPress} />
       )}
     </Appbar.Header>
@@ -38,8 +38,6 @@ function MyHeader({
 MyHeader.propTypes = {
   title: PropTypes.string.isRequired,
   back: PropTypes.bool,
-  first: PropTypes.bool,
-  second: PropTypes.bool,
   firstIcon: PropTypes.string,
   secondIcon: PropTypes.string,
   onFirstIconPress: PropTypes.func,

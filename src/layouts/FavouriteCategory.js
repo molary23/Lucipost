@@ -4,14 +4,8 @@ import { CategoryContext } from "../services/categories-context";
 import ListItem from "./ListItem";
 
 function FavouriteCategory({ category }) {
-  const {
-    cat,
-    isLoading,
-    error,
-    addFavouriteCategory,
-    favouriteCategory,
-    removeFavouriteCategory,
-  } = React.useContext(CategoryContext);
+  const { addFavouriteCategory, favouriteCategory, removeFavouriteCategory } =
+    React.useContext(CategoryContext);
 
   const isFave = favouriteCategory.find((c) => c === category.id);
   return (

@@ -4,6 +4,7 @@ import { ScrollView } from "react-native";
 import { List } from "react-native-paper";
 
 import { CategoryContext } from "../../services/categories-context";
+import { TagContext } from "../../services/tags-context";
 
 import ListItem from "../../layouts/ListItem";
 
@@ -13,28 +14,42 @@ import { MainView, ContentView } from "../../styles/all";
 import Loader from "../../layouts/Loader";
 import { StyleSheet, Text, View, SafeAreaView, StatusBar } from "react-native";
 
-function AddCategoryScreen() {
-  const { cat, isLoading, error, addFavouriteCategory, favouriteCategory } =
-    React.useContext(CategoryContext);
+function AddCategoryScreen({ route }) {
+  const { cat, isLoadingCat } = React.useContext(CategoryContext);
+  const { tag, isLoadingTag } = React.useContext(TagContext);
+  const { add } = route.params;
 
-  return (
-    <MainView>
-      {isLoading ? (
-        <Loader />
-      ) : (
+  if (add === "Categories") {
+    return (
+      <MainView>
         <ContentView>
           <ScrollView>
             <List.Section>
-              <List.Subheader>Categories</List.Subheader>
+              <List.Subheader>{add}</List.Subheader>
               {cat.map((item, i) => {
-                return <FavouriteCategory category={item} key={i} />;
+                return <FavouriteCategory category={item} key={i} add={add} />;
               })}
             </List.Section>
           </ScrollView>
         </ContentView>
-      )}
-    </MainView>
-  );
+      </MainView>
+    );
+  } else {
+    return (
+      <MainView>
+        <ContentView>
+          <ScrollView>
+            <List.Section>
+              <List.Subheader>{add}</List.Subheader>
+              {tag.map((item, i) => {
+                return <FavouriteCategory category={item} key={i} add={add} />;
+              })}
+            </List.Section>
+          </ScrollView>
+        </ContentView>
+      </MainView>
+    );
+  }
 }
 
 export default AddCategoryScreen;

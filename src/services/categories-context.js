@@ -8,20 +8,20 @@ export const CategoryContext = React.createContext();
 export const CategoryContextProvider = ({ children }) => {
   const [cat, setCat] = React.useState([]),
     [error, setError] = React.useState(null),
-    [isLoading, setIsLoading] = React.useState(false),
+    [isLoadingCat, setIsLoadingCat] = React.useState(false),
     [favouriteCategory, setFavouriteCategory] = React.useState([]),
     executedRef = React.useRef(false);
 
   const pullCategories = () => {
-    setIsLoading(true);
+    setIsLoadingCat(true);
 
     categoriesRequest()
       .then((results) => {
-        setIsLoading(false);
+        setIsLoadingCat(false);
         setCat(results);
       })
       .catch((err) => {
-        setIsLoading(false);
+        setIsLoadingCat(false);
         setError(err);
       });
   };
@@ -64,7 +64,7 @@ export const CategoryContextProvider = ({ children }) => {
         favouriteCategory,
         removeFavouriteCategory: remove,
         error,
-        isLoading,
+        isLoadingCat,
       }}
     >
       {children}
