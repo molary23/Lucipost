@@ -22,29 +22,35 @@ function PersonaliseStackView() {
         <PersonaliseStack.Navigator
           screenOptions={{
             headerShown: false,
-            ...TransitionPresets.ModalSlideFromBottomIOS,
           }}
         >
-          <PersonaliseStack.Screen
-            name="TrendingScreen"
-            component={TrendingScreen}
-          />
+          <PersonaliseStack.Group
+            screenOptions={{
+              ...TransitionPresets.SlideFromRightIOS,
+            }}
+          >
+            <PersonaliseStack.Screen
+              name="TrendingScreen"
+              component={TrendingScreen}
+            />
 
-          <PersonaliseStack.Screen
-            name="CategoryScreen"
-            component={CategoryScreen}
-          />
-
-          <PersonaliseStack.Screen
-            name="AddCategoryScreen"
-            component={AddCategoryScreen}
-            options={{
-              headerShown: false,
+            <PersonaliseStack.Screen
+              name="CategoryScreen"
+              component={CategoryScreen}
+            />
+          </PersonaliseStack.Group>
+          <PersonaliseStack.Group
+            screenOptions={{
               gestureEnabled: true,
               cardOverlayEnabled: true,
-              ...TransitionPresets.ModalPresentationIOS,
+              presentation: "modal",
             }}
-          />
+          >
+            <PersonaliseStack.Screen
+              name="AddCategoryScreen"
+              component={AddCategoryScreen}
+            />
+          </PersonaliseStack.Group>
         </PersonaliseStack.Navigator>
       </TagContextProvider>
     </CategoryContextProvider>

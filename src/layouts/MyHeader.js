@@ -24,7 +24,7 @@ function MyHeader({
       }}
     >
       {back && <Appbar.BackAction onPress={onPressBack} />}
-      <Appbar.Content title={title} />
+      <Appbar.Content title={title} titleStyle={{ textAlign: "center" }} />
       {!!firstIcon && (
         <Appbar.Action icon={firstIcon} onPress={onFirstIconPress} />
       )}

@@ -19,16 +19,21 @@ import { ScrollView } from "react-native";
 import {
   ContentView,
   MainView,
-  CategoryHeaderView,
+  BorderedView,
   CategoryHeader,
   CategoryView,
   CategoryBox,
+  CategoryBoxView,
+  CategoryListItem,
 } from "../../styles/all";
 import MyHeader from "../../layouts/MyHeader";
+import Loader from "../../layouts/Loader";
 
 function CategoryScreen({ navigation }) {
-  const { favouriteCategory, isLoadingCat } = React.useContext(CategoryContext);
-  const { favouriteTag, isLoadingTag } = React.useContext(TagContext);
+  const { favouriteCategory, isLoadingCat, removeFavouriteCategory } =
+    React.useContext(CategoryContext);
+  const { favouriteTag, isLoadingTag, removeFavouriteTag } =
+    React.useContext(TagContext);
 
   console.log("category", favouriteCategory);
   console.log("tag", favouriteTag);
@@ -66,10 +71,28 @@ function CategoryScreen({ navigation }) {
                 />
               </TouchableOpacity>
             </CategoryView>
-
-            {favouriteCategory.map((item, i) => {
-              return <Text key={i}>{item.name}</Text>;
-            })}
+            {isLoadingCat ? (
+              <Loader />
+            ) : (
+              <CategoryBoxView>
+                {favouriteCategory.map((item, i) => {
+                  return (
+                    <BorderedView key={i}>
+                      <CategoryListItem>{item.name}</CategoryListItem>
+                      <TouchableOpacity
+                        onPress={() => removeFavouriteCategory(item)}
+                      >
+                        <MaterialCommunityIcons
+                          name="close"
+                          size={24}
+                          color="black"
+                        />
+                      </TouchableOpacity>
+                    </BorderedView>
+                  );
+                })}
+              </CategoryBoxView>
+            )}
           </CategoryBox>
           <CategoryBox>
             <CategoryView>
@@ -86,10 +109,28 @@ function CategoryScreen({ navigation }) {
                 />
               </TouchableOpacity>
             </CategoryView>
-
-            {favouriteTag.map((item, i) => {
-              return <Text key={i}>{item.name}</Text>;
-            })}
+            {isLoadingTag ? (
+              <Loader />
+            ) : (
+              <CategoryBoxView>
+                {favouriteTag.map((item, i) => {
+                  return (
+                    <BorderedView key={i}>
+                      <CategoryListItem>{item.name}</CategoryListItem>
+                      <TouchableOpacity
+                        onPress={() => removeFavouriteTag(item)}
+                      >
+                        <MaterialCommunityIcons
+                          name="close"
+                          size={24}
+                          color="black"
+                        />
+                      </TouchableOpacity>
+                    </BorderedView>
+                  );
+                })}
+              </CategoryBoxView>
+            )}
           </CategoryBox>
         </ScrollView>
       </ContentView>

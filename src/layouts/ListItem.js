@@ -2,15 +2,16 @@ import * as React from "react";
 import { List } from "react-native-paper";
 import PropTypes from "prop-types";
 
-import { ListItems } from "../styles/all";
+import { capitalizeAll } from "../utils/capitalize";
 
 function ListItem({ title, leftIcon, rightIcon, color, onPress }) {
   return (
-    <ListItems
+    <List.Item
       title={title}
       onPress={onPress}
       left={() => !!leftIcon && <List.Icon icon={leftIcon} color={color} />}
       right={() => !!rightIcon && <List.Icon icon={rightIcon} color={color} />}
+      titleStyle={{ textTransform: "capitalize" }}
     />
   );
 }

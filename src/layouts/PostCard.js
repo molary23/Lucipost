@@ -1,9 +1,11 @@
 import * as React from "react";
 import { Card } from "react-native-paper";
-import { Platform } from "react-native";
-import { TouchableOpacity } from "react-native";
+
+import { TouchableOpacity, Platform } from "react-native";
 
 import { Ionicons, AntDesign } from "@expo/vector-icons";
+
+import { PostContext } from "../services/post-context";
 
 import {
   ContentCard,
@@ -14,6 +16,10 @@ import {
 } from "../styles/all";
 
 function PostCard({ content, openURL }) {
+  const { addFavouritePost, removeFavouritePost, favouritePost } =
+    React.useContext(PostContext);
+
+  const isFave = favouritePost.find((p) => p.id === content.item.id);
   return (
     <ContentCard>
       <Card>
@@ -45,10 +51,24 @@ function PostCard({ content, openURL }) {
               )}
             </ContentCardButton>
             <ContentCardButton
-              style={{ alignItems: "flex-end" }}
-              onPress={() => console.log("second")}
+              style={{ alignItems: "center" }}
+              onPress={openURL}
             >
-              <Ionicons name="md-bookmarks-outline" size={24} color="black" />
+              <Ionicons name="open-outline" size={24} color="black" />
+            </ContentCardButton>
+            <ContentCardButton
+              style={{ alignItems: "flex-end" }}
+              onPress={() =>
+                isFave
+                  ? removeFavouritePost(content.item)
+                  : addFavouritePost(content.item)
+              }
+            >
+              <Ionicons
+                name={isFave ? "md-bookmarks" : "md-bookmarks-outline"}
+                size={24}
+                color="black"
+              />
             </ContentCardButton>
           </ContentCardActions>
         </Card.Actions>

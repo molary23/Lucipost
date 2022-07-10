@@ -109,10 +109,6 @@ export const PostCardContent = styled(Paragraph)`
   text-align: justify;
 `;
 
-export const ListItems = styled(List.Item)`
-  text-transform: capitalize;
-`;
-
 export const CategoryBox = styled(View)`
   min-height: ${(props) => props.theme.box[1]};
   padding-bottom: ${(props) => props.theme.spacing[3]};
@@ -127,4 +123,25 @@ export const CategoryView = styled(View)`
 export const CategoryHeader = styled(Text)`
   font-size: ${(props) => props.theme.fontSize[3]};
   font-weight: ${(props) => props.theme.fontWeight[2]};
+`;
+
+export const CategoryBoxView = styled(View)`
+  flex-direction: row;
+  flex-wrap: wrap;
+`;
+
+export const BorderedView = styled(View)`
+  border: 1px solid ${(props) => props.theme.color[2]};
+  padding: 10px;
+  flex-direction: row;
+  justify-content: space-between;
+  align-self: center;
+  margin: 5px;
+  border-radius: 30px;
+  background: ${(props) => props.theme.color[0]};
+`;
+
+export const CategoryListItem = styled(Text)`
+  text-transform: capitalize;
+  padding-right: ${(props) => props.theme.spacing[1]};
 `;

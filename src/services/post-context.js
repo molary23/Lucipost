@@ -1,11 +1,14 @@
 import * as React from "react";
 import { postRequest } from "./post-request";
 
+import { storeData, loadData } from "../utils/storage";
+
 export const PostContext = React.createContext();
 
 function PostContextProvider({ children }) {
   const [posts, setPosts] = React.useState([]),
     [error, setError] = React.useState(null),
+    [favouritePost, setFavouritePost] = React.useState([]),
     [isLoading, setIsLoading] = React.useState(false),
     executedRef = React.useRef(false);
 
@@ -24,6 +27,28 @@ function PostContextProvider({ children }) {
     }, 2000);
   };
 
+  const add = (post) => {
+    const fave = [...favouritePost, post];
+    setFavouritePost(fave);
+  };
+
+  const remove = (post) => {
+    const newFave = favouritePost.filter((f) => f !== post);
+    setFavouritePost(newFave);
+  };
+
+  React.useEffect(() => {
+    storeData(favouritePost, "@post");
+    console.log(favouritePost);
+  }, [favouritePost]);
+
+  React.useEffect(() => {
+    const loadedFave = loadData("@post");
+    if (loadedFave.length > 0) {
+      setFavouritePost(loadedFave);
+    }
+  }, []);
+
   React.useEffect(() => {
     if (executedRef.current) {
       return;
@@ -33,7 +58,16 @@ function PostContextProvider({ children }) {
   }, []);
 
   return (
-    <PostContext.Provider value={{ posts, error, isLoading }}>
+    <PostContext.Provider
+      value={{
+        posts,
+        error,
+        addFavouritePost: add,
+        removeFavouritePost: remove,
+        favouritePost,
+        isLoading,
+      }}
+    >
       {children}
     </PostContext.Provider>
   );

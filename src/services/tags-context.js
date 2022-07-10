@@ -46,7 +46,6 @@ export const TagContextProvider = ({ children }) => {
 
   React.useEffect(() => {
     storeData(favouriteTag, "@tag");
-    console.log(favouriteTag);
   }, [favouriteTag]);
 
   React.useEffect(() => {
