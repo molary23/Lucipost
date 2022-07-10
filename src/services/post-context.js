@@ -39,7 +39,6 @@ function PostContextProvider({ children }) {
 
   React.useEffect(() => {
     storeData(favouritePost, "@post");
-    console.log(favouritePost);
   }, [favouritePost]);
 
   React.useEffect(() => {

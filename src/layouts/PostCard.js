@@ -7,6 +7,8 @@ import { Ionicons, AntDesign } from "@expo/vector-icons";
 
 import { PostContext } from "../services/post-context";
 
+import { onShare } from "../utils/share";
+
 import {
   ContentCard,
   ContentCardActions,
@@ -17,9 +19,8 @@ import {
 
 function PostCard({ content, openURL }) {
   const { addFavouritePost, removeFavouritePost, favouritePost } =
-    React.useContext(PostContext);
-
-  const isFave = favouritePost.find((p) => p.id === content.item.id);
+      React.useContext(PostContext),
+    isFave = favouritePost.find((p) => p.id === content.item.id);
   return (
     <ContentCard>
       <Card>
@@ -42,7 +43,9 @@ function PostCard({ content, openURL }) {
           <ContentCardActions>
             <ContentCardButton
               style={{ alignItems: "flex-start" }}
-              onPress={() => console.log("first")}
+              onPress={() =>
+                onShare(`https://www.lucipost.com/?p=${content.item.id}`)
+              }
             >
               {Platform.OS === "android" ? (
                 <AntDesign name="sharealt" size={24} color="black" />

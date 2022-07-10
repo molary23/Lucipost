@@ -1,11 +1,17 @@
 import PropTypes from "prop-types";
 import * as React from "react";
 
-import { MainView } from "../../styles/all";
+import { FlatList, Text } from "react-native";
+
+import { MainView, ContentView } from "../../styles/all";
 import MyHeader from "../../layouts/MyHeader";
 
+import PostCard from "../../layouts/PostCard";
+import { PostContext } from "../../services/post-context";
+
 export const BookMarksScreen = ({ navigation: { navigate }, route }) => {
-  console.log(route);
+  const { favouritePost } = React.useContext(PostContext);
+
   return (
     <MainView>
       <MyHeader
@@ -25,6 +31,28 @@ export const BookMarksScreen = ({ navigation: { navigate }, route }) => {
           })
         }
       />
+      <ContentView>
+        {favouritePost.length <= 0 ? (
+          <Text>You have not bookmarked any post.</Text>
+        ) : (
+          <FlatList
+            data={favouritePost}
+            renderItem={(item) => (
+              <PostCard
+                content={item}
+                openURL={() => {
+                  navigate("WebKitScreen", {
+                    url: item.item.id,
+                    type: "post",
+                    sender: "BookmarksScreen",
+                  });
+                }}
+              />
+            )}
+            keyExtractor={(item) => item.id}
+          />
+        )}
+      </ContentView>
     </MainView>
   );
 };
