@@ -23,14 +23,20 @@ function AddCategoryScreen({ route }) {
     return (
       <MainView>
         <ContentView>
-          <ScrollView>
-            <List.Section>
-              <List.Subheader>{add}</List.Subheader>
-              {cat.map((item, i) => {
-                return <FavouriteCategory category={item} key={i} add={add} />;
-              })}
-            </List.Section>
-          </ScrollView>
+          {isLoadingCat ? (
+            <Loader />
+          ) : (
+            <ScrollView>
+              <List.Section>
+                <List.Subheader>{add}</List.Subheader>
+                {cat.map((item, i) => {
+                  return (
+                    <FavouriteCategory category={item} key={i} add={add} />
+                  );
+                })}
+              </List.Section>
+            </ScrollView>
+          )}
         </ContentView>
       </MainView>
     );
@@ -38,14 +44,20 @@ function AddCategoryScreen({ route }) {
     return (
       <MainView>
         <ContentView>
-          <ScrollView>
-            <List.Section>
-              <List.Subheader>{add}</List.Subheader>
-              {tag.map((item, i) => {
-                return <FavouriteCategory category={item} key={i} add={add} />;
-              })}
-            </List.Section>
-          </ScrollView>
+          {isLoadingTag ? (
+            <Loader />
+          ) : (
+            <ScrollView>
+              <List.Section>
+                <List.Subheader>{add}</List.Subheader>
+                {tag.map((item, i) => {
+                  return (
+                    <FavouriteCategory category={item} key={i} add={add} />
+                  );
+                })}
+              </List.Section>
+            </ScrollView>
+          )}
         </ContentView>
       </MainView>
     );

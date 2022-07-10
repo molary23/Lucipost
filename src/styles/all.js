@@ -112,3 +112,19 @@ export const PostCardContent = styled(Paragraph)`
 export const ListItems = styled(List.Item)`
   text-transform: capitalize;
 `;
+
+export const CategoryBox = styled(View)`
+  min-height: ${(props) => props.theme.box[1]};
+  padding-bottom: ${(props) => props.theme.spacing[3]};
+`;
+
+export const CategoryView = styled(View)`
+  padding-bottom: ${(props) => props.theme.spacing[1]};
+  flex-direction: row;
+  justify-content: space-between;
+`;
+
+export const CategoryHeader = styled(Text)`
+  font-size: ${(props) => props.theme.fontSize[3]};
+  font-weight: ${(props) => props.theme.fontWeight[2]};
+`;

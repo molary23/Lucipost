@@ -40,7 +40,7 @@ export const CategoryContextProvider = ({ children }) => {
   };
 
   const remove = (category) => {
-    const newFave = favouriteCategory.filter((f) => f !== category);
+    const newFave = favouriteCategory.filter((f) => f.id !== category.id);
     setFavouriteCategory(newFave);
   };
 
