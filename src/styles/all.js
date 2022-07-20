@@ -145,3 +145,26 @@ export const CategoryListItem = styled(Text)`
   text-transform: capitalize;
   padding-right: ${(props) => props.theme.spacing[1]};
 `;
+
+export const AddCategoryView = styled(View)`
+  flex: 1;
+  padding-top: ${(props) => props.theme.spacing[4]};
+`;
+
+export const AddCategoryTopDraw = styled(View)`
+  background: #ccc;
+  width: ${(props) => props.theme.spacing[4]};
+  height: 7.5px;
+  margin: ${(props) => props.theme.spacing[1]} 0px;
+  align-self: center;
+  border-radius: 5px;
+`;
+
+export const AddCategoryContent = styled(View)`
+  background: #fff;
+  width: 100%;
+  height: 100%;
+  align-self: center;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+`;

@@ -43,7 +43,7 @@ function PersonaliseStackView() {
             screenOptions={{
               gestureEnabled: true,
               cardOverlayEnabled: true,
-              presentation: "modal",
+              presentation: "transparentModal",
             }}
           >
             <PersonaliseStack.Screen
