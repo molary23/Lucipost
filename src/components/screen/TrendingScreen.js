@@ -7,6 +7,7 @@ import { ContentView, MainView } from "../../styles/all";
 import TrendingPostal from "../../layouts/TrendingPostal";
 import TrendingPostCard from "../../layouts/TrendingPostCard";
 import MyHeader from "../../layouts/MyHeader";
+import MySnackBar from "../../layouts/MySnackBar";
 
 const DATA = [
   {

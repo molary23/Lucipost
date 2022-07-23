@@ -25,7 +25,10 @@ function ActionSheetScreen({ navigation, route }) {
             })
           }
         >
-          <List.Item title="Categories" titleStyle={{ textAlign: "center" }} />
+          <List.Item
+            title="Update Categories"
+            titleStyle={{ textAlign: "center", color: "blue" }}
+          />
         </TouchableOpacity>
         <Divider />
         <TouchableOpacity
@@ -33,7 +36,10 @@ function ActionSheetScreen({ navigation, route }) {
             navigation.navigate("AddCategoryScreen", { add: "Tags" })
           }
         >
-          <List.Item title="Tags" titleStyle={{ textAlign: "center" }} />
+          <List.Item
+            title="Update Tags"
+            titleStyle={{ textAlign: "center", color: "blue" }}
+          />
         </TouchableOpacity>
       </>
     );

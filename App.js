@@ -2,6 +2,7 @@ import * as React from "react";
 import { StatusBar as ExpoStatusBar } from "expo-status-bar";
 import { SafeAreaView, StatusBar } from "react-native";
 import styled from "styled-components/native";
+import { RootSiblingParent } from "react-native-root-siblings";
 
 import PostContextProvider from "./src/services/post-context";
 import CategoryContextProvider from "./src/services/categories-context";
@@ -18,7 +19,7 @@ const SafeArea = styled(SafeAreaView)`
 
 export default function App() {
   return (
-    <>
+    <RootSiblingParent>
       <ThemeProvider theme={theme}>
         <PostContextProvider>
           <SafeAreaView style={{ flex: 1, marginTop: StatusBar.currentHeight }}>
@@ -27,6 +28,6 @@ export default function App() {
         </PostContextProvider>
       </ThemeProvider>
       <ExpoStatusBar style="auto" />
-    </>
+    </RootSiblingParent>
   );
 }

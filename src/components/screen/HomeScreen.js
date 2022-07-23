@@ -10,6 +10,7 @@ import Searchbar from "../../layouts/SearchBar";
 import PostCard from "../../layouts/PostCard";
 import MyHeader from "../../layouts/MyHeader";
 import Loader from "../../layouts/Loader";
+import { Snackbar } from "react-native-paper";
 
 function HomeScreen({ navigation: { navigate } }) {
   const { posts, isLoading, error } = React.useContext(PostContext);

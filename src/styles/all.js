@@ -183,3 +183,8 @@ export const ASClose = styled(View)`
 export const ASTitle = styled(View)`
   margin-bottom: ${(props) => props.theme.spacing[1]};
 `;
+
+export const SNView = styled(View)`
+  flex: 1;
+  justify-content: space-between;
+`;

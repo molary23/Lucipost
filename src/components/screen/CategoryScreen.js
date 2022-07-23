@@ -7,8 +7,6 @@ import { ScrollView, TouchableOpacity } from "react-native";
 
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 
-import { Chip } from "react-native-paper";
-
 import {
   ContentView,
   MainView,
@@ -21,14 +19,10 @@ import {
 import MyHeader from "../../layouts/MyHeader";
 import Loader from "../../layouts/Loader";
 
-function CategoryScreen({ navigation }) {
-  const { favouriteCategory, isLoadingCat, removeFavouriteCategory } =
-    React.useContext(CategoryContext);
-  const { favouriteTag, isLoadingTag, removeFavouriteTag } =
-    React.useContext(TagContext);
+function CategoryScreen({ navigation, route }) {
+  const { favouriteCategory, isLoadingCat } = React.useContext(CategoryContext),
+    { favouriteTag, isLoadingTag } = React.useContext(TagContext);
 
-  console.log("category", favouriteCategory);
-  console.log("tag", favouriteTag);
   return (
     <MainView>
       <MyHeader
@@ -65,12 +59,7 @@ function CategoryScreen({ navigation }) {
               <CategoryBoxView>
                 {favouriteCategory.map((item, i) => {
                   return (
-                    <CategoryListItem
-                      mode="outlined"
-                      closeIcon="close"
-                      onClose={() => removeFavouriteCategory(item)}
-                      key={i}
-                    >
+                    <CategoryListItem mode="outlined" key={i}>
                       {item.name}
                     </CategoryListItem>
                   );
@@ -99,12 +88,7 @@ function CategoryScreen({ navigation }) {
               <CategoryBoxView>
                 {favouriteTag.map((item, i) => {
                   return (
-                    <CategoryListItem
-                      mode="outlined"
-                      closeIcon="close"
-                      onClose={() => removeFavouriteTag(item)}
-                      key={i}
-                    >
+                    <CategoryListItem mode="outlined" key={i}>
                       {item.name}
                     </CategoryListItem>
                   );
