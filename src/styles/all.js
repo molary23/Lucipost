@@ -6,7 +6,7 @@ import {
   Card,
   ActivityIndicator,
   Paragraph,
-  List,
+  Chip,
 } from "react-native-paper";
 
 export const MainView = styled(View)`
@@ -130,31 +130,22 @@ export const CategoryBoxView = styled(View)`
   flex-wrap: wrap;
 `;
 
-export const BorderedView = styled(View)`
-  border: 1px solid ${(props) => props.theme.color[2]};
-  padding: 10px;
-  flex-direction: row;
-  justify-content: space-between;
-  align-self: center;
-  margin: 5px;
-  border-radius: 30px;
-  background: ${(props) => props.theme.color[0]};
-`;
-
-export const CategoryListItem = styled(Text)`
-  text-transform: capitalize;
-  padding-right: ${(props) => props.theme.spacing[1]};
+export const CategoryListItem = styled(Chip)`
+  text-transform: uppercase;
+  margin-right: ${(props) => props.theme.spacing[1]};
+  margin-bottom: ${(props) => props.theme.spacing[1]};
 `;
 
 export const AddCategoryView = styled(View)`
   flex: 1;
-  padding-top: ${(props) => props.theme.spacing[4]};
+  background: rgba(0, 0, 0, 0.3);
+  justify-content: flex-end;
 `;
 
 export const AddCategoryTopDraw = styled(View)`
   background: #ccc;
   width: ${(props) => props.theme.spacing[4]};
-  height: 7.5px;
+  height: 5px;
   margin: ${(props) => props.theme.spacing[1]} 0px;
   align-self: center;
   border-radius: 5px;
@@ -162,9 +153,33 @@ export const AddCategoryTopDraw = styled(View)`
 
 export const AddCategoryContent = styled(View)`
   background: #fff;
-  width: 100%;
-  height: 100%;
-  align-self: center;
+  height: 80%;
   border-top-left-radius: 15px;
   border-top-right-radius: 15px;
+`;
+
+export const ASView = styled(View)`
+  flex: 1;
+  background: rgba(0, 0, 0, 0.3);
+  justify-content: flex-end;
+  padding: 0px ${(props) => props.theme.spacing[1]} 0px;
+`;
+
+export const ASContent = styled(View)`
+  background: #fff;
+  border-radius: 10px;
+  text-align: center;
+  margin-bottom: ${(props) => props.theme.spacing[1]};
+`;
+
+export const ASClose = styled(View)`
+  background: #fff;
+  border-radius: 10px;
+  text-align: center;
+  font-color: tomato;
+  margin-bottom: ${(props) => props.theme.spacing[1]};
+`;
+
+export const ASTitle = styled(View)`
+  margin-bottom: ${(props) => props.theme.spacing[1]};
 `;

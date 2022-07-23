@@ -3,23 +3,15 @@ import * as React from "react";
 import { CategoryContext } from "../../services/categories-context";
 import { TagContext } from "../../services/tags-context";
 
-import {
-  StyleSheet,
-  Text,
-  View,
-  SafeAreaView,
-  StatusBar,
-  TouchableOpacity,
-} from "react-native";
+import { ScrollView, TouchableOpacity } from "react-native";
 
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 
-import { ScrollView } from "react-native";
+import { Chip } from "react-native-paper";
 
 import {
   ContentView,
   MainView,
-  BorderedView,
   CategoryHeader,
   CategoryView,
   CategoryBox,
@@ -43,13 +35,9 @@ function CategoryScreen({ navigation }) {
         title="Categories"
         back={true}
         onPressBack={() => navigation.goBack()}
-        secondIcon="tag-plus-outline"
+        secondIcon="dots-vertical"
         onSecondIconPress={() =>
-          navigation.navigate("AddCategoryScreen", { add: "Tags" })
-        }
-        firstIcon="plus-box-multiple"
-        onFirstIconPress={() =>
-          navigation.navigate("AddCategoryScreen", { add: "Categories" })
+          navigation.navigate("ActionSheetScreen", { sender: "Category" })
         }
       />
       <ContentView>
@@ -77,18 +65,14 @@ function CategoryScreen({ navigation }) {
               <CategoryBoxView>
                 {favouriteCategory.map((item, i) => {
                   return (
-                    <BorderedView key={i}>
-                      <CategoryListItem>{item.name}</CategoryListItem>
-                      <TouchableOpacity
-                        onPress={() => removeFavouriteCategory(item)}
-                      >
-                        <MaterialCommunityIcons
-                          name="close"
-                          size={24}
-                          color="black"
-                        />
-                      </TouchableOpacity>
-                    </BorderedView>
+                    <CategoryListItem
+                      mode="outlined"
+                      closeIcon="close"
+                      onClose={() => removeFavouriteCategory(item)}
+                      key={i}
+                    >
+                      {item.name}
+                    </CategoryListItem>
                   );
                 })}
               </CategoryBoxView>
@@ -115,18 +99,14 @@ function CategoryScreen({ navigation }) {
               <CategoryBoxView>
                 {favouriteTag.map((item, i) => {
                   return (
-                    <BorderedView key={i}>
-                      <CategoryListItem>{item.name}</CategoryListItem>
-                      <TouchableOpacity
-                        onPress={() => removeFavouriteTag(item)}
-                      >
-                        <MaterialCommunityIcons
-                          name="close"
-                          size={24}
-                          color="black"
-                        />
-                      </TouchableOpacity>
-                    </BorderedView>
+                    <CategoryListItem
+                      mode="outlined"
+                      closeIcon="close"
+                      onClose={() => removeFavouriteTag(item)}
+                      key={i}
+                    >
+                      {item.name}
+                    </CategoryListItem>
                   );
                 })}
               </CategoryBoxView>

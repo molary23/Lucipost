@@ -14,6 +14,7 @@ import TagContextProvider from "../../services/tags-context";
 import TrendingScreen from "../../components/screen/TrendingScreen";
 import CategoryScreen from "../../components/screen/CategoryScreen";
 import AddCategoryScreen from "../../components/screen/AddCategoryScreen";
+import ActionSheetScreen from "../ActionSheetScreen";
 
 function PersonaliseStackView() {
   return (
@@ -49,6 +50,10 @@ function PersonaliseStackView() {
             <PersonaliseStack.Screen
               name="AddCategoryScreen"
               component={AddCategoryScreen}
+            />
+            <PersonaliseStack.Screen
+              name="ActionSheetScreen"
+              component={ActionSheetScreen}
             />
           </PersonaliseStack.Group>
         </PersonaliseStack.Navigator>
