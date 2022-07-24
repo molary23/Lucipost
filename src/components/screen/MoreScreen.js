@@ -18,7 +18,12 @@ function MoreScreen({ navigation: { navigate } }) {
             <ListItem
               title="Notifications"
               color={"yellow"}
-              leftIcon="folder"
+              leftIcon="bell-circle-outline"
+              onPress={() =>
+                navigate("ActionSheetScreen", {
+                  sender: "More",
+                })
+              }
             />
             <ListItem
               title="About Lucipost"
