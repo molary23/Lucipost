@@ -15,7 +15,7 @@ function ActionSheetScreen({ navigation, route }) {
   const { sender } = route.params;
   let listItem, minHeight;
   if (sender === "Category") {
-    minHeight = "20%";
+    minHeight = "22.5%";
     listItem = (
       <>
         <TouchableOpacity
@@ -50,7 +50,13 @@ function ActionSheetScreen({ navigation, route }) {
       <ASContent style={{ height: minHeight }}>
         <AddCategoryTopDraw></AddCategoryTopDraw>
         <ASTitle>
-          <ContentParagraph>Choose an Option</ContentParagraph>
+          <ContentParagraph
+            style={{
+              textAlign: "center",
+            }}
+          >
+            Choose an Option
+          </ContentParagraph>
         </ASTitle>
 
         <Divider />

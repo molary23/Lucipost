@@ -79,7 +79,7 @@ function AddCategoryScreen({ route, navigation }) {
             ) : (
               <ScrollView>
                 <List.Section>
-                  <CategoryView style={{ padding: "10px" }}>
+                  <CategoryView style={{ padding: 10 }}>
                     <CategoryHeader>{add}</CategoryHeader>
                     <TouchableOpacity onPress={saveTag}>
                       <MaterialCommunityIcons
@@ -115,7 +115,7 @@ function AddCategoryScreen({ route, navigation }) {
             ) : (
               <ScrollView>
                 <List.Section>
-                  <CategoryView style={{ padding: "10px" }}>
+                  <CategoryView style={{ padding: 10 }}>
                     <CategoryHeader>{add}</CategoryHeader>
                     <TouchableOpacity onPress={saveTag}>
                       <MaterialCommunityIcons

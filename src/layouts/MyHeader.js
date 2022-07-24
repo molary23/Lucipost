@@ -23,7 +23,7 @@ function MyHeader({
         backgroundColor: "#5ea1ed",
       }}
     >
-      {back && <Appbar.BackAction onPress={onPressBack} />}
+      {back && <Appbar.BackAction onPress={onPressBack} color="#fff" />}
       <Appbar.Content
         title={title}
         titleStyle={{ textAlign: "center", color: "#fff" }}

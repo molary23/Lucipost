@@ -46,6 +46,7 @@ function PersonaliseStackView() {
               gestureEnabled: true,
               cardOverlayEnabled: true,
               presentation: "transparentModal",
+              ...TransitionPresets.ModalPresentationIOS,
             }}
           >
             <PersonaliseStack.Screen

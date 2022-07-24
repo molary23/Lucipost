@@ -10,6 +10,11 @@ function TrendMoreScreen({ navigation: { navigate }, route }) {
   const { sender, data } = route.params;
   return (
     <MainView>
+      <MyHeader
+        title={`Top 10 ${sender} Posts`}
+        onPressBack={() => navigate("TrendingScreen")}
+        back={true}
+      />
       <ContentView></ContentView>
     </MainView>
   );

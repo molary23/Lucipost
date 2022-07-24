@@ -59,7 +59,13 @@ function CategoryScreen({ navigation, route }) {
               <CategoryBoxView>
                 {favouriteCategory.map((item, i) => {
                   return (
-                    <CategoryListItem mode="outlined" key={i}>
+                    <CategoryListItem
+                      mode="outlined"
+                      key={i}
+                      textStyle={{
+                        textTransform: "uppercase",
+                      }}
+                    >
                       {item.name}
                     </CategoryListItem>
                   );
@@ -88,7 +94,13 @@ function CategoryScreen({ navigation, route }) {
               <CategoryBoxView>
                 {favouriteTag.map((item, i) => {
                   return (
-                    <CategoryListItem mode="outlined" key={i}>
+                    <CategoryListItem
+                      mode="outlined"
+                      key={i}
+                      textStyle={{
+                        textTransform: "uppercase",
+                      }}
+                    >
                       {item.name}
                     </CategoryListItem>
                   );

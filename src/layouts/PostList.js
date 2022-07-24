@@ -3,7 +3,7 @@ import { List, Card } from "react-native-paper";
 
 function PostList({ item }) {
   return (
-    <Card style={{ marginBottom: "10px" }}>
+    <Card style={{ marginBottom: 10 }}>
       <Card.Content>
         <List.Item
           title={item.title}

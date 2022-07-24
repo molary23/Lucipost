@@ -131,14 +131,13 @@ export const CategoryBoxView = styled(View)`
 `;
 
 export const CategoryListItem = styled(Chip)`
-  text-transform: uppercase;
   margin-right: ${(props) => props.theme.spacing[1]};
   margin-bottom: ${(props) => props.theme.spacing[1]};
 `;
 
 export const AddCategoryView = styled(View)`
   flex: 1;
-  background: rgba(0, 0, 0, 0.3);
+  background: transparent;
   justify-content: flex-end;
 `;
 
@@ -160,7 +159,7 @@ export const AddCategoryContent = styled(View)`
 
 export const ASView = styled(View)`
   flex: 1;
-  background: rgba(0, 0, 0, 0.3);
+  background: transparent;
   justify-content: flex-end;
   padding: 0px ${(props) => props.theme.spacing[1]} 0px;
 `;
