@@ -1,13 +1,14 @@
 import * as React from "react";
 import Loader from "../../layouts/Loader";
 
-import { FlatList } from "react-native";
+import { ScrollView, View, TouchableOpacity, Text } from "react-native";
+import { List } from "react-native-paper";
 
-import { ContentView, MainView } from "../../styles/all";
+import { ContentView, MainView, TSLink } from "../../styles/all";
 import TrendingPostal from "../../layouts/TrendingPostal";
 import TrendingPostCard from "../../layouts/TrendingPostCard";
 import MyHeader from "../../layouts/MyHeader";
-import MySnackBar from "../../layouts/MySnackBar";
+import PostList from "../../layouts/PostList";
 
 const DATA = [
   {
@@ -29,8 +30,6 @@ const reduceData = DATA.splice(0, 1);
 const Item = ({ title }) => <TrendingPostCard title={title} />;
 
 function TrendingScreen({ navigation: { navigate } }) {
-  const renderItem = ({ item }) => <Item title={item.title} />;
-
   const [isLoading, setIsLoading] = React.useState(false);
   return (
     <MainView>
@@ -41,18 +40,84 @@ function TrendingScreen({ navigation: { navigate } }) {
         onSecondIconPress={() => navigate("CategoryScreen")}
       />
       <ContentView>
-        {isLoading ? (
-          <Loader />
-        ) : (
-          <>
-            <TrendingPostal {...reduceData} />
-            <FlatList
-              data={DATA}
-              renderItem={renderItem}
-              keyExtractor={(item) => item.id}
-            />
-          </>
-        )}
+        <ScrollView>
+          <View>
+            {isLoading ? (
+              <Loader />
+            ) : (
+              <>
+                <List.Section>
+                  <List.Subheader>Trending Posts</List.Subheader>
+                  <TrendingPostal {...reduceData} />
+
+                  {DATA.map((item, i) => {
+                    return <PostList item={item} key={i} />;
+                  })}
+                  <TouchableOpacity
+                    onPress={() =>
+                      navigate("TrendMoreScreen", {
+                        sender: "trending",
+                        data: DATA,
+                      })
+                    }
+                  >
+                    <TSLink> See More</TSLink>
+                  </TouchableOpacity>
+                </List.Section>
+              </>
+            )}
+          </View>
+          <View>
+            {isLoading ? (
+              <Loader />
+            ) : (
+              <>
+                <List.Section>
+                  <List.Subheader>Top posts by Categories</List.Subheader>
+
+                  {DATA.map((item, i) => {
+                    return <PostList item={item} key={i} />;
+                  })}
+                  <TouchableOpacity
+                    onPress={() =>
+                      navigate("TrendMoreScreen", {
+                        sender: "categories",
+                        data: DATA,
+                      })
+                    }
+                  >
+                    <TSLink>See More</TSLink>
+                  </TouchableOpacity>
+                </List.Section>
+              </>
+            )}
+          </View>
+          <View>
+            {isLoading ? (
+              <Loader />
+            ) : (
+              <>
+                <List.Section>
+                  <List.Subheader>Top posts by Tags</List.Subheader>
+
+                  {DATA.map((item, i) => {
+                    return <PostList item={item} key={i} />;
+                  })}
+                  <TouchableOpacity
+                    onPress={() =>
+                      navigate("TrendMoreScreen", {
+                        sender: "tags",
+                        data: DATA,
+                      })
+                    }
+                  >
+                    <TSLink>See More</TSLink>
+                  </TouchableOpacity>
+                </List.Section>
+              </>
+            )}
+          </View>
+        </ScrollView>
       </ContentView>
     </MainView>
   );

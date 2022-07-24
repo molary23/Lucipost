@@ -188,3 +188,7 @@ export const SNView = styled(View)`
   flex: 1;
   justify-content: space-between;
 `;
+
+export const TSLink = styled(Text)`
+  font-weight: 600;
+`;

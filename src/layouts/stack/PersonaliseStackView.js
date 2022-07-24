@@ -14,6 +14,7 @@ import TagContextProvider from "../../services/tags-context";
 import TrendingScreen from "../../components/screen/TrendingScreen";
 import CategoryScreen from "../../components/screen/CategoryScreen";
 import AddCategoryScreen from "../../components/screen/AddCategoryScreen";
+import TrendMoreScreen from "../../components/screen/TrendMoreScreen";
 import ActionSheetScreen from "../ActionSheetScreen";
 
 function PersonaliseStackView() {
@@ -54,6 +55,17 @@ function PersonaliseStackView() {
             <PersonaliseStack.Screen
               name="ActionSheetScreen"
               component={ActionSheetScreen}
+            />
+          </PersonaliseStack.Group>
+          <PersonaliseStack.Group
+            screenOptions={{
+              cardStyleInterpolator:
+                CardStyleInterpolators.forModalPresentationIOS,
+            }}
+          >
+            <PersonaliseStack.Screen
+              name="TrendMoreScreen"
+              component={TrendMoreScreen}
             />
           </PersonaliseStack.Group>
         </PersonaliseStack.Navigator>

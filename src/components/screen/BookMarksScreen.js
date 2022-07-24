@@ -1,5 +1,5 @@
-import PropTypes from "prop-types";
 import * as React from "react";
+import PropTypes from "prop-types";
 
 import { FlatList, Text } from "react-native";
 
@@ -22,8 +22,6 @@ export const BookMarksScreen = ({ navigation: { navigate }, route }) => {
           })
         }
         back={true}
-        first={true}
-        second={true}
         secondIcon="magnify"
         onSecondIconPress={() =>
           navigate("SearchScreen", {

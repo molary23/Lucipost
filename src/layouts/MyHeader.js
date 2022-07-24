@@ -20,16 +20,27 @@ function MyHeader({
         height: isAndroid ? 30 : 60,
         marginBottom: isAndroid && 20,
         marginTop: isAndroid && 20,
-        backgroundColor: "red",
+        backgroundColor: "#5ea1ed",
       }}
     >
       {back && <Appbar.BackAction onPress={onPressBack} />}
-      <Appbar.Content title={title} titleStyle={{ textAlign: "center" }} />
+      <Appbar.Content
+        title={title}
+        titleStyle={{ textAlign: "center", color: "#fff" }}
+      />
       {!!firstIcon && (
-        <Appbar.Action icon={firstIcon} onPress={onFirstIconPress} />
+        <Appbar.Action
+          icon={firstIcon}
+          onPress={onFirstIconPress}
+          color="#fff"
+        />
       )}
       {!!secondIcon && (
-        <Appbar.Action icon={secondIcon} onPress={onSecondIconPress} />
+        <Appbar.Action
+          icon={secondIcon}
+          onPress={onSecondIconPress}
+          color="#fff"
+        />
       )}
     </Appbar.Header>
   );
