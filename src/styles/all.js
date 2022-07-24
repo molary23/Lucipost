@@ -203,3 +203,16 @@ export const MoreView = styled(View)`
   box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.2);
   margin-bottom: ${(props) => props.theme.spacing[1]};
 `;
+
+export const OPView = styled(View)`
+  flex: 1;
+  background: transparent;
+  justify-content: flex-end;
+`;
+
+export const OPContent = styled(View)`
+  background: #fff;
+  border-top-right-radius: 10px;
+  border-top-left-radius: 10px;
+  text-align: center;
+`;

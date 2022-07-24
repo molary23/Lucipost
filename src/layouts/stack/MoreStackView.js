@@ -10,6 +10,7 @@ import MoreScreen from "../../components/screen/MoreScreen";
 import SearchScreen from "../../components/screen/SearchScreen";
 import WebKitScreen from "../../components/screen/WebKitScreen";
 import ActionSheetScreen from "../ActionSheetScreen";
+import OptionSheetScreen from "../OptionSheetScreen";
 
 const MoreStack = createStackNavigator();
 
@@ -38,8 +39,8 @@ function MoreStackView() {
         }}
       >
         <MoreStack.Screen
-          name="ActionSheetScreen"
-          component={ActionSheetScreen}
+          name="OptionSheetScreen"
+          component={OptionSheetScreen}
         />
       </MoreStack.Group>
     </MoreStack.Navigator>

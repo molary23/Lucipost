@@ -1,6 +1,5 @@
 import * as React from "react";
 import { WebView } from "react-native-webview";
-import Toast from "react-native-root-toast";
 
 import { MainView, ContentView } from "../../styles/all";
 
@@ -16,9 +15,11 @@ class WebKitScreen extends React.Component {
   componentDidMount() {
     const { type, url } = this.props.route.params;
 
+    console.log(url);
+
     if (type === "post") {
       this.setState({
-        POST_URL: `${this.state.URL}?p=${url}`,
+        POST_URL: `${this.state.URL}?p=${url.id}`,
       });
     } else {
       this.setState({

@@ -21,8 +21,8 @@ function MoreScreen({ navigation: { navigate } }) {
               color={theme.color[3]}
               leftIcon="bell-circle-outline"
               onPress={() =>
-                navigate("ActionSheetScreen", {
-                  sender: "More",
+                navigate("OptionSheetScreen", {
+                  sender: "Notifications",
                 })
               }
             />
@@ -32,8 +32,8 @@ function MoreScreen({ navigation: { navigate } }) {
               color={"#aaa"}
               leftIcon="lightbulb-outline"
               onPress={() =>
-                navigate("ActionSheetScreen", {
-                  sender: "More",
+                navigate("OptionSheetScreen", {
+                  sender: "Display",
                 })
               }
             />

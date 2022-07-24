@@ -39,7 +39,7 @@ function HomeScreen({ navigation: { navigate } }) {
                   content={item}
                   openURL={() => {
                     navigate("WebKitScreen", {
-                      url: item.item.id,
+                      url: item.item,
                       type: "post",
                       sender: "HomeScreen",
                     });

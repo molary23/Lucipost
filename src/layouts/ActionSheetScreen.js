@@ -43,32 +43,6 @@ function ActionSheetScreen({ navigation, route }) {
         </TouchableOpacity>
       </>
     );
-  } else if (sender === "More") {
-    minHeight = "30%";
-    listItem = (
-      <>
-        <TouchableOpacity onPress={() => console.log("daily")}>
-          <List.Item
-            title="Daily (Recommended)"
-            titleStyle={{ textAlign: "center", color: "blue" }}
-          />
-        </TouchableOpacity>
-        <Divider />
-        <TouchableOpacity onPress={() => console.log("Hourly")}>
-          <List.Item
-            title="Hourly"
-            titleStyle={{ textAlign: "center", color: "blue" }}
-          />
-        </TouchableOpacity>
-        <Divider />
-        <TouchableOpacity onPress={() => console.log("30 mins")}>
-          <List.Item
-            title="30 Minutes"
-            titleStyle={{ textAlign: "center", color: "blue" }}
-          />
-        </TouchableOpacity>
-      </>
-    );
   }
 
   return (
