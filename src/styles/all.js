@@ -7,6 +7,7 @@ import {
   ActivityIndicator,
   Paragraph,
   Chip,
+  List,
 } from "react-native-paper";
 
 export const MainView = styled(View)`
@@ -85,7 +86,7 @@ export const ContentCardView = styled(View)`
 `;
 
 export const TrendingListTitle = styled(Text)`
-  color: #fff;
+  color: ${(props) => props.theme.color[0]};
   font-size: ${(props) => props.theme.fontSize[3]};
   font-weight: ${(props) => props.theme.fontWeight[2]};
   letter-spacing: 1px;
@@ -175,7 +176,7 @@ export const ASClose = styled(View)`
   background: #fff;
   border-radius: 10px;
   text-align: center;
-  font-color: tomato;
+  font-color: ${(props) => props.theme.color[4]};
   margin-bottom: ${(props) => props.theme.spacing[1]};
 `;
 
@@ -190,4 +191,15 @@ export const SNView = styled(View)`
 
 export const TSLink = styled(Text)`
   font-weight: 600;
+`;
+
+export const MoreList = styled(List.Item)`
+  margin: -7.5px;
+`;
+
+export const MoreView = styled(View)`
+  background: ${(props) => props.theme.color[0]};
+  border-radius: 10px;
+  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.2);
+  margin-bottom: ${(props) => props.theme.spacing[1]};
 `;

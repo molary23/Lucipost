@@ -1,10 +1,12 @@
 import * as React from "react";
-import { ScrollView, Platform } from "react-native";
-import { List } from "react-native-paper";
+import { ScrollView, Platform, View } from "react-native";
+import { Divider, Card } from "react-native-paper";
 
-import { ContentView, MainView } from "../../styles/all";
+import { ContentView, MainView, MoreView } from "../../styles/all";
 import ListItem from "../../layouts/ListItem";
 import MyHeader from "../../layouts/MyHeader";
+
+import { theme } from "../../styles/themes";
 
 function MoreScreen({ navigation: { navigate } }) {
   const isAndroid = Platform.OS === "android";
@@ -13,11 +15,10 @@ function MoreScreen({ navigation: { navigate } }) {
       <MyHeader title="More" back={false} first={false} second={false} />
       <ContentView>
         <ScrollView>
-          <List.Section>
-            <List.Subheader>Some title</List.Subheader>
+          <MoreView style={{ marginBottom: 10 }}>
             <ListItem
               title="Notifications"
-              color={"yellow"}
+              color={theme.color[3]}
               leftIcon="bell-circle-outline"
               onPress={() =>
                 navigate("ActionSheetScreen", {
@@ -25,6 +26,20 @@ function MoreScreen({ navigation: { navigate } }) {
                 })
               }
             />
+            <Divider />
+            <ListItem
+              title="Display"
+              color={"#aaa"}
+              leftIcon="lightbulb-outline"
+              onPress={() =>
+                navigate("ActionSheetScreen", {
+                  sender: "More",
+                })
+              }
+            />
+          </MoreView>
+
+          <MoreView style={{ marginBottom: 10 }}>
             <ListItem
               title="About Lucipost"
               color={"blue"}
@@ -37,11 +52,7 @@ function MoreScreen({ navigation: { navigate } }) {
                 })
               }
             />
-            <ListItem
-              title="About App"
-              color={"blue"}
-              leftIcon={isAndroid ? "android" : "apple"}
-            />
+            <Divider />
             <ListItem
               title="Privacy Policy"
               color={"blue"}
@@ -54,6 +65,7 @@ function MoreScreen({ navigation: { navigate } }) {
                 })
               }
             />
+            <Divider />
             <ListItem
               title="Advertisments"
               color={"blue"}
@@ -66,6 +78,15 @@ function MoreScreen({ navigation: { navigate } }) {
                 })
               }
             />
+            <Divider />
+            <ListItem
+              title="About App"
+              color={"blue"}
+              leftIcon={isAndroid ? "android" : "apple"}
+            />
+          </MoreView>
+
+          <MoreView style={{ marginBottom: 10 }}>
             <ListItem
               title="Bookmarks"
               color={"black"}
@@ -76,7 +97,7 @@ function MoreScreen({ navigation: { navigate } }) {
                 })
               }
             />
-          </List.Section>
+          </MoreView>
         </ScrollView>
       </ContentView>
     </MainView>
