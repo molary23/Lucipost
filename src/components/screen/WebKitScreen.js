@@ -1,36 +1,59 @@
 import * as React from "react";
 import { WebView } from "react-native-webview";
+import Toast from "react-native-root-toast";
 
 import { MainView, ContentView } from "../../styles/all";
 
 import MyHeader from "../../layouts/MyHeader";
 
-function WebKitScreen({ navigation: { navigate }, route }) {
-  const type = route.params.type,
-    sender = route.params.sender,
-    URL = "https://www.lucipost.com/";
+class WebKitScreen extends React.Component {
+  state = {
+    URL: "https://www.lucipost.com/",
+    POST_URL: "",
+    back: "",
+    title: "Lucipost",
+  };
+  componentDidMount() {
+    const { type, url } = this.props.route.params;
 
-  let POST_URL, back;
-  if (type === "post") {
-    POST_URL = `${URL}?p=${route.params.url}`;
-  } else {
-    POST_URL = URL + route.params.url;
+    if (type === "post") {
+      this.setState({
+        POST_URL: `${this.state.URL}?p=${url}`,
+      });
+    } else {
+      this.setState({
+        POST_URL: this.state.URL + url,
+      });
+    }
   }
 
-  return (
-    <MainView>
-      <MyHeader
-        title="Lucipost"
-        onPressBack={() => navigate(sender)}
-        back={true}
-        secondIcon="dots-vertical"
-        onSecondIconPress={() => console.log("More Here")}
-      />
-      <ContentView>
-        <WebView source={{ uri: POST_URL }} />
-      </ContentView>
-    </MainView>
-  );
-}
+  handleMessage = (message) => {
+    this.setState({
+      title: message.nativeEvent.data,
+    });
+  };
 
+  render() {
+    const { POST_URL, title } = this.state;
+    const { route, navigation } = this.props;
+    return (
+      <MainView>
+        <MyHeader
+          title={title}
+          onPressBack={() => navigation.navigate(route.params.sender)}
+          back={true}
+          secondIcon="dots-vertical"
+          onSecondIconPress={() => console.log("More Here")}
+        />
+        <ContentView>
+          <WebView
+            source={{ uri: POST_URL }}
+            injectedJavaScript="window.ReactNativeWebView.postMessage(document.title)"
+            onMessage={this.handleMessage}
+          />
+        </ContentView>
+      </MainView>
+    );
+  }
+}
 export default WebKitScreen;
