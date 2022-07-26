@@ -15,8 +15,6 @@ class WebKitScreen extends React.Component {
   componentDidMount() {
     const { type, url } = this.props.route.params;
 
-    console.log(url);
-
     if (type === "post") {
       this.setState({
         POST_URL: `${this.state.URL}?p=${url.id}`,
@@ -44,7 +42,12 @@ class WebKitScreen extends React.Component {
           onPressBack={() => navigation.navigate(route.params.sender)}
           back={true}
           secondIcon="dots-vertical"
-          onSecondIconPress={() => console.log("More Here")}
+          onSecondIconPress={() =>
+            navigation.navigate("OptionSheetScreen", {
+              sender: "Webkit",
+              data: route.params.url,
+            })
+          }
         />
         <ContentView>
           <WebView

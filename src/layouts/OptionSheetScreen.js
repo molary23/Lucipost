@@ -1,6 +1,9 @@
 import React from "react";
 import { TouchableOpacity } from "react-native";
 
+import { PostContext } from "../services/post-context";
+import { onShare } from "../utils/share";
+
 import { Divider, List } from "react-native-paper";
 import {
   OPView,
@@ -12,6 +15,7 @@ import {
 
 function OptionSheetScreen({ navigation, route }) {
   const { sender } = route.params;
+
   let listItem, minHeight;
   if (sender === "Notifications") {
     minHeight = "25%";
@@ -67,6 +71,42 @@ function OptionSheetScreen({ navigation, route }) {
         <TouchableOpacity onPress={() => console.log("System ")}>
           <List.Item
             title="System "
+            titleStyle={{ textAlign: "center", color: "blue" }}
+          />
+        </TouchableOpacity>
+      </>
+    );
+  } else if (sender === "Webkit") {
+    const { data } = route.params,
+      { addFavouritePost, removeFavouritePost, favouritePost } =
+        React.useContext(PostContext),
+      isFave = favouritePost.find((p) => p.id === data.id);
+    minHeight = "25%";
+    listItem = (
+      <>
+        <TouchableOpacity onPress={() => console.log("Open in Browser")}>
+          <List.Item
+            title="Open in Browser"
+            titleStyle={{ textAlign: "center", color: "blue" }}
+          />
+        </TouchableOpacity>
+        <Divider />
+        <TouchableOpacity
+          onPress={() =>
+            isFave ? removeFavouritePost(data) : addFavouritePost(data)
+          }
+        >
+          <List.Item
+            title={isFave ? "Remove from Bookmarks" : "Save to App Bookmark"}
+            titleStyle={{ textAlign: "center", color: "blue" }}
+          />
+        </TouchableOpacity>
+        <Divider />
+        <TouchableOpacity
+          onPress={() => onShare(`https://www.lucipost.com/?p=${data.id}`)}
+        >
+          <List.Item
+            title="Share"
             titleStyle={{ textAlign: "center", color: "blue" }}
           />
         </TouchableOpacity>
